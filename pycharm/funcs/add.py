@@ -1,18 +1,25 @@
-
+import sys
 
 def add1():
     """"
-    Функция для добавления информации о новых рейсах
-    """
-    # Запросить данные о работнике.
-    name = input("Название пункта назначения рейса? ")
-    number = int(input("Номер рейса? "))
-    tip = input("Тип самолета? ")
-    # Создать словарь.
-    i = {
-        'name': name,
-        'number': number,
-        'tip': tip,
-    }
+        Функция для добавления информации о новых студентах
+        """
+    fullname=input('введите фамилию , имя и отчества студента: ')
+    try:
+        group=int(input('введите номер группы '))
+    except ValueError:
+        print('номер должен быть числом',file=sys.stderr)
+        exit(1)
 
-    return i
+    lessons=['математика', 'информатика','экономика','программирование','философия']
+    res={}
+    res['marks'] = []
+    res['fullname']=fullname
+    res['group']=group
+
+
+    for i in range(0,5):
+        a=int(input(f'оценка по {lessons[i]}: '))
+        res['marks'].append(a)
+
+    return res
